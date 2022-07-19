@@ -5,25 +5,27 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styles: [
     `
-    .my-btn {
+    .small-btn {
       width: 20em;
     }
   `,
   ],
 })
 export class AppComponent {
-  showPass = false;
   clickCounter = 0;
   clickLogs: string[] = [];
 
+  isHidden() {
+    return this.clickCounter % 2 === 0;
+  }
+
   toggleShowPass() {
-    this.showPass = !this.showPass;
     this.clickCounter++;
     this.clickLogs.push(
       this.clickCounter +
         '. ' +
         new Date().toLocaleString('en-GB') +
-        (this.showPass ? ' secret shown' : ' secret not shown')
+        (this.isHidden() ? ' secret not shown' : ' secret shown')
     );
   }
 }

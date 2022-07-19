@@ -26,13 +26,15 @@
     <div class="col-12">
       <div style="min-height: 5em;">
         <button
-          class="btn btn-primary mb-2 my-btn"
+          class="btn btn-primary mb-2 small-btn"
           (click)="toggleShowPass()"
           [disabled]="clickCounter > 13"
         >
-          {{ clickCounter % 2 == 0 ? 'Display' : 'Hide' }} Details
+          {{ isHidden() ? 'Display' : 'Hide' }} Details
         </button>
-        <p *ngIf="showPass" class="text-secondary">Secret Password = Angular</p>
+        <p *ngIf="!isHidden()" class="text-secondary">
+          Secret Password = Angular
+        </p>
       </div>
 
       <div
