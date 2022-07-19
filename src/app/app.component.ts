@@ -19,7 +19,7 @@ export class AppComponent {
     return this.clickCounter % 2 === 0;
   }
 
-  toggleShowPass() {
+  toggleDetails() {
     this.clickCounter++;
     this.clickLogs.push(
       this.clickCounter +
