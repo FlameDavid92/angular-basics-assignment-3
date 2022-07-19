@@ -25,7 +25,11 @@
     <hr />
     <div class="col-12">
       <div style="min-height: 5em;">
-        <button class="btn btn-primary mb-2 my-btn" (click)="toggleShowPass()">
+        <button
+          class="btn btn-primary mb-2 my-btn"
+          (click)="toggleShowPass()"
+          [disabled]="clickCounter > 13"
+        >
           {{ clickCounter % 2 == 0 ? 'Display' : 'Hide' }} Details
         </button>
         <p *ngIf="showPass" class="text-secondary">Secret Password = Angular</p>
